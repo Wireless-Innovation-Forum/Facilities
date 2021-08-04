@@ -1,5 +1,17 @@
 /*-----------------------------------------------------------------------------*/
-/* Distributed by Wireless Innovation Forum                                    */
+/*    Distributed by Wireless Innovation Forum                                 */
+/*    Copyright 2021 SDS Project Authors. All Rights Reserved.				   */
+/*    Licensed under the Apache License, Version 2.0 (the "License");		   */
+/*    you may not use this file except in compliance with the License.		   */
+/*    You may obtain a copy of the License at                                  */
+/*                                                                             */
+/*        http://www.apache.org/licenses/LICENSE-2.0						   */
+/*																			   */
+/*    Unless required by applicable law or agreed to in writing, software	   */
+/*    distributed under the License is distributed on an "AS IS" BASIS,		   */
+/*    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. */
+/*    See the License for the specific language governing permissions and      */
+/*    limitations under the License.										   */
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrPlatformProviderAdaptations.hpp					 		       */
 /* Date:  2021-08-04														   */
@@ -8,26 +20,6 @@
 /*          metadata if needed and Interface declaration properties.           */
 /*          XcvrPlatformProviderAdaptations.hpp has to be adapted by platform  */
 /*          providers only in areas marked with *** PROVIDER-ADAPTATION ***.   */
-/*-----------------------------------------------------------------------------*/
-/* In addition to the rights and licenses granted by the undersigned pursuant  */
-/* to Section 4 of the IPR Policy, the undersigned hereby agrees as follows: if*/
-/* this Code Contribution is included in whole or in part in the Specification */
-/* or Other Work Product of the Committee named above, the undersigned hereby  */
-/* grants the Forum and its members a non-exclusive, irrevocable, worldwide,   */
-/* perpetual, royalty-free license under the undersigned’s copyrights in its   */
-/* Code Contribution right to sublicense the right to implementers or users, as*/
-/* appropriate, of such Code Contribution to copy, modify, and redistribute    */
-/* such Code Contribution or included portion thereof.                         */
-/* THIS CODE CONTRIBUTION IS PROVIDED TO THE FORUM BY THE UNDERSIGNED "AS IS"  */
-/* AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE   */
-/* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, */
-/* ARE DISCLAIMED. IN NO EVENT SHALL THE UNDERSIGNED BE LIABLE FOR ANY DIRECT, */
-/* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES          */
-/* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;*/
-/* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION), HOWEVER CAUSED AND*/
-/* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT  */
-/* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF    */
-/* THIS CODE CONTRIBUTION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  */
 /*-----------------------------------------------------------------------------*/
 
 // Specifies user-adaptations:
