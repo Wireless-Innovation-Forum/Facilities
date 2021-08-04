@@ -15,6 +15,7 @@
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrExplicitServicesAccess.hpp									   */
 /* Date:  2021-08-04														   */
+/* Version:  1.0.0															   */
 /* Purpose: XcvrExplicitServicesAccess.hpp defines the Explicit services access*/
 /*          class for active services access								   */
 /*-----------------------------------------------------------------------------*/

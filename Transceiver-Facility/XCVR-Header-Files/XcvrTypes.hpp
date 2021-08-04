@@ -15,6 +15,7 @@
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrTypes.hpp					 		                           */
 /* Date:  2021-08-04														   */
+/* Version:  1.0.0															   */
 /* Purpose: The 3.4	XcvrTypes.hpp file declares the API types of the 		   */
 /*          Transceiver Facility PIM Specification. 					       */
 /*-----------------------------------------------------------------------------*/

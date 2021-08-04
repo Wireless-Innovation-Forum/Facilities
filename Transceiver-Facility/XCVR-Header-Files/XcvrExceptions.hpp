@@ -15,6 +15,7 @@
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrExceptions.hpp												   */
 /* Date:  2021-08-04														   */
+/* Version:  1.0.0															   */
 /* Purpose: The XcvrExceptions.hpp file is specified as the header file that   */
 /*          declares all useable exceptions.								   */
 /*          XcvrExceptions.hpp is used if EXCEPTION_USE is equal to true       */

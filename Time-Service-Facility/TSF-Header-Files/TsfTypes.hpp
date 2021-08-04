@@ -15,6 +15,7 @@
 /*-----------------------------------------------------------------------------*/
 /* Title : TsfTypes.hpp					 				                       */
 /* Date:  2021-08-04														   */
+/* Version:  1.0.0															   */
 /* Purpose: The TsfTypes.hpp file declares the API types of the 			   */
 /*          Time Service Facility PIM Specification. 					       */
 /*-----------------------------------------------------------------------------*/

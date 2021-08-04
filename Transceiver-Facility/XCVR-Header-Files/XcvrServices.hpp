@@ -15,6 +15,7 @@
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrServices.hpp					 		                           */
 /* Date:  2021-08-04														   */
+/* Version:  1.0.0															   */
 /* Purpose: The XcvrServices.hpp file is specified as the header file that     */
 /*          declares the service interfaces of the Transceiver Facility        */
 /*	 		PIM Specification. 											       */

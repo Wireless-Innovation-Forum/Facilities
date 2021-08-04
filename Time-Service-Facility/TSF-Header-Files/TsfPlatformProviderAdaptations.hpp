@@ -15,6 +15,7 @@
 /*-----------------------------------------------------------------------------*/
 /* Title : TsfPlatformProviderAdaptations.hpp					 		       */
 /* Date:  2021-08-04														   */
+/* Version:  1.0.0															   */
 /* Purpose: The TsfPlatformProviderAdaptations.hpp file is specified as the    */
 /*          header file specifying the ActiveServicesAccess property           */
 /*          TsfPlatformProviderAdaptations.hpp has to be adapted by platform   */

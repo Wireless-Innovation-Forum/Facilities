@@ -15,6 +15,7 @@
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrPlatformProviderAdaptations.hpp					 		       */
 /* Date:  2021-08-04														   */
+/* Version:  1.0.0															   */
 /* Purpose: The XcvrPlatformProviderAdaptations.hpp file is specified as the   */
 /*          header file specifying the ActiveServicesAccess property, Tx or Rx */
 /*          metadata if needed and Interface declaration properties.           */
