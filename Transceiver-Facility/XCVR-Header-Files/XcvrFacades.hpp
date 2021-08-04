@@ -15,7 +15,7 @@
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrFacades.hpp                                                     */
 /* Date:  2021-08-04                                                           */
-/* Version:  1.0.0                                                             */
+/* Version: 2.0.0                                                              */
 /* Purpose: The XcvrFacades.hpp file is specified as the header file that      */
 /*          declares the Facade class.                                         */
 /*          XcvrFacades.hpp has to be directly included by conformant radio    */
