@@ -46,7 +46,7 @@ namespace WInnF_Cpp
 
             // Access to active use services
             virtual void setUseService(const char *ServiceName,
-                                       Object *    provider) = 0;
+                                       Object *    useService) = 0;
 
             virtual ~GenericServicesAccess() NOEXCEPT {}
          };
