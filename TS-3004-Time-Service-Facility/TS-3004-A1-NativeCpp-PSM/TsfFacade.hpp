@@ -1,11 +1,12 @@
 /*-----------------------------------------------------------------------------*/
 /*    Distributed by Wireless Innovation Forum                                 */
-/*    Copyright 2021 SDS Project Authors. All Rights Reserved.                 */
+/*    Copyright 2021 SDS Harmonized Timing Service Task Group.                 */
+/*    All Rights Reserved.                                                     */
 /*    Licensed under the Apache License, Version 2.0 (the "License");          */
 /*    you may not use this file except in compliance with the License.         */
 /*    You may obtain a copy of the License at                                  */
 /*                                                                             */
-/*        http://www.apache.org/licenses/LICENSE-2.0                           */
+/* https://github.com/Wireless-Innovation-Forum/Facilities/blob/master/LICENSE */
 /*                                                                             */
 /*    Unless required by applicable law or agreed to in writing, software      */
 /*    distributed under the License is distributed on an "AS IS" BASIS,        */
@@ -14,8 +15,8 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : TsfFacade.hpp                                                       */
-/* Date:  2021-08-04                                                           */
-/* Version:  1.0.0                                                             */
+/* Date:  28 September 2021                                                    */
+/* Version:  V0.0.0-r4.6                                                       */
 /* Purpose: The TsfFacade.hpp file is specified as the header file that        */
 /*          declares the Facade class.                                         */
 /*          TsfFacade.hpp has to be directly included by conformant radio      */
