@@ -14,44 +14,45 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
+/* Title : ScaXcvrTuningTypes.idl                                              */
 /* Date:  25 December 2021                                                     */
 /* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Purpose: The ScaXcvrTuningInitialTuning.idl file is specified as the IDL    */
+/*          file that declares the InitialTuning service interface specified   */
+/*          by sections 3.1.11 of Transceiver Facility PIM Specification       */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
+#ifndef __SCA_XCVR_TUNING_INITIAL_TUNING_DEFINED
+#define __SCA_XCVR_TUNING_INITIAL_TUNING_DEFINED
 
-#include "XcvrTypes.hpp"
+#include "ScaXcvrTuningTypes.idl"
 
-namespace WInnF_Cpp
+module WInnF_Sca
 {
-  namespace Transceiver
+  module Transceiver
   {
-    namespace ActiveServicesAccess
+    //InitialTuning Types
+    typedef unsigned short TuningPreset;
+    const TuningPreset UNDEFINED_TUNING_PRESET = 0xFFFF;
+
+    module Tuning
     {
-      class Object
+      interface InitialTuning
       {
-       public:
-         virtual ~Object() NOEXCEPT {}
+        void setTuning(in TuningPreset requestedPreset,
+                       in CarrierFreq requestedFrequency,
+                       in Gain requestedGain,
+                       in BurstNumber scheduleAbsoluteBurst)
+          raises( UnavailableService,
+                 MaxTuningPreset,
+                 MinCarrierFreq,
+                 MaxCarrierFreq,
+                 MinGain,
+                 MaxGain,
+                 TuningMILT);
       };
+    };
+  }; //Transceiver
+}; // WInnF_Sca
 
-      class GenericServicesAccess
-      {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
-
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
-      };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+#endif // __SCA_XCVR_TUNING_INITIAL_TUNING_DEFINED

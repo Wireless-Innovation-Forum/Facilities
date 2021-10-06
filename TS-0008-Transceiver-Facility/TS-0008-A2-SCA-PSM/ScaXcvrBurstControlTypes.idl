@@ -14,44 +14,29 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
+/* Title : ScaXcvrBurstControlTypes.idl                                        */
 /* Date:  25 December 2021                                                     */
 /* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Purpose: The ScaXcvrBurstControlTypes.idl file is specified as the IDL file */
+/*          that declares some of the API types used by the BurstControl       */
+/*          services that are specified by section 3.4 of Transceiver Facility */
+/*          PIM Specification along with the exceptions related to the use of  */
+/*          these types in the BurstControl services.                          */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
+#ifndef __SCA_XCVR_BURST_CONTROL_TYPES_DEFINED
+#define __SCA_XCVR_BURST_CONTROL_TYPES_DEFINED
 
-#include "XcvrTypes.hpp"
+#include "ScaXcvrTypes.idl"
 
-namespace WInnF_Cpp
+module WInnF_Sca
 {
-  namespace Transceiver
+  module Transceiver
   {
-    namespace ActiveServicesAccess
-    {
-      class Object
-      {
-       public:
-         virtual ~Object() NOEXCEPT {}
-      };
+    // BlockLength
+    typedef unsigned long BlockLength;
+    const BlockLength UNDEFINED_BLOCK_LENGTH = 0xFFFFFFFF;
+  }; //Transceiver
+}; // WInnF_Sca
 
-      class GenericServicesAccess
-      {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
-
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
-      };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+#endif // __SCA_XCVR_BURST_CONTROL_TYPES_DEFINED

@@ -15,8 +15,8 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : TsfServices.hpp                                                     */
-/* Date:  28 September 2021                                                    */
-/* Version:  V0.0.0-r4.6                                                       */
+/* Date:  25 December 2021                                                     */
+/* Version:  V1.1.0                                                            */
 /* Purpose: The TsfServices.hpp file is specified as the header file that      */
 /*          declares the service interfaces of the Time Service Facility       */
 /*          PIM Specification.                                                 */
@@ -26,7 +26,7 @@
 #define TSF_SERVICES
 
 #if __cplusplus < 199711L
-  #error C++ version must be C++98 or later
+   #error C++ version must be C++98 or later
 #endif
 
 // TsfPimVersion property (section 1.5 of [PSM])

@@ -15,8 +15,8 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : TsfExceptions.hpp                                                   */
-/* Date:  28 September 2021                                                    */
-/* Version:  V0.0.0-r4.6                                                       */
+/* Date:  25 December 2021                                                     */
+/* Version:  V1.1.0                                                            */
 /* Purpose: The TsfExceptions.hpp file is specified as the header file that    */
 /*          declares all useable exceptions.                                   */
 /*          TsfExceptions.hpp is used if EXCEPTION_USE is equal to true        */

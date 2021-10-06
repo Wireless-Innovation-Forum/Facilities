@@ -1,0 +1,78 @@
+/*-----------------------------------------------------------------------------*/
+/*    Distributed by Wireless Innovation Forum                                 */
+/*    Copyright 2021 SDS Harmonized Timing Service Task Group.                 */
+/*    All Rights Reserved.                                                     */
+/*    Licensed under the Apache License, Version 2.0 (the "License");          */
+/*    you may not use this file except in compliance with the License.         */
+/*    You may obtain a copy of the License at                                  */
+/*                                                                             */
+/* https://github.com/Wireless-Innovation-Forum/Facilities/blob/master/LICENSE */
+/*                                                                             */
+/*    Unless required by applicable law or agreed to in writing, software      */
+/*    distributed under the License is distributed on an "AS IS" BASIS,        */
+/*    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. */
+/*    See the License for the specific language governing permissions and      */
+/*    limitations under the License.                                           */
+/*-----------------------------------------------------------------------------*/
+/* Title : ScaTsfTypes.idl                                                     */
+/* Date:  25 December 2021                                                     */
+/* Version:  V1.1.0                                                            */
+/* Purpose: The ScaTsfTypes.idl file is specified as the IDL file that declares*/
+/*          the types specified by section 3.4 of Time Service Facility PIM    */
+/*          Specification                                                      */
+/*-----------------------------------------------------------------------------*/
+
+#ifndef __SCA_TSF_TYPES_DEFINED
+#define __SCA_TSF_TYPES_DEFINED
+
+#include "ScaTsfExceptions.idl"
+
+module WInnf_Sca
+{
+  module TimeService
+  {
+    // SourceId (signed int in the [PIM] and uint8_t in Header file of the Native C++ PSM)
+    typedef octet SourceId;
+
+    // SpecificTimeId (signed int in the [PIM] and uint16_t in Header file of the Native C++ PSM)
+    typedef unsigned short SpecificTimeId;
+
+    // TimeValue (section 3.4.1 of [PIM])
+    struct TimeValue
+    {
+       unsigned long seconds;     // in seconds
+       unsigned long nanoseconds; // in nanoseconds (<1.000.000.000)
+    };
+
+    // PIM structure constant decomposed in two scalar constants
+    const unsigned long Undefinedseconds = 4294967295;     //0xFFFFFFFF;
+    const unsigned long Undefinednanoseconds = 4294967295; //0xFFFFFFFF;
+
+    // TimeUncertainty (section 3.4.2 of [PIM])
+    typedef long TimeUncertainty;
+	
+    const TimeUncertainty Beyond2SecTimeUncertainty     = -16; // 0xFFFFFFF0
+    const TimeUncertainty Beyond4SecTimeUncertainty     = -15; // 0xFFFFFFF1
+    const TimeUncertainty Beyond8SecTimeUncertainty     = -14; // 0xFFFFFFF2
+    const TimeUncertainty Beyond16SecTimeUncertainty    = -13; // 0xFFFFFFF3
+    const TimeUncertainty Beyond32SecTimeUncertainty    = -12; // 0xFFFFFFF4
+    const TimeUncertainty Beyond64SecTimeUncertainty    = -11; // 0xFFFFFFF5
+    const TimeUncertainty Beyond128SecTimeUncertainty   = -10; // 0xFFFFFFF6
+    const TimeUncertainty Beyond256SecTimeUncertainty   = -9; // 0xFFFFFFF7
+    const TimeUncertainty Beyond512SecTimeUncertainty   = -8; // 0xFFFFFFF8
+    const TimeUncertainty Beyond1024SecTimeUncertainty  = -7; // 0xFFFFFFF9
+    const TimeUncertainty Beyond2048SecTimeUncertainty  = -6; // 0xFFFFFFFA
+    const TimeUncertainty Beyond4096SecTimeUncertainty  = -5; // 0xFFFFFFFB
+    const TimeUncertainty Beyond8192SecTimeUncertainty  = -4; // 0xFFFFFFFC
+    const TimeUncertainty Beyond16384SecTimeUncertainty = -3; // 0xFFFFFFFD
+
+    const TimeUncertainty UnknownTimeUncertainty   = -2; // 0xFFFFFFFE
+    const TimeUncertainty UndefinedTimeUncertainty = -1; // 0xFFFFFFFF
+
+    // RateUncertainty (section 3.4.3 of [PIM])
+    typedef long RateUncertainty;
+
+    const RateUncertainty UnknownRateUncertainty = -1; // 0xFFFFFFFF
+  };
+};
+#endif // __SCA_TSF_TYPES_DEFINED

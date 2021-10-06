@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------*/
 /*    Distributed by Wireless Innovation Forum                                 */
-/*    Copyright 2021 SDS Harmonized Timing Service Task Group.                 */
+/*    Copyright 2021 SDS Transceiver WG Transceiver Next Task Group.           */
 /*    All Rights Reserved.                                                     */
 /*    Licensed under the Apache License, Version 2.0 (the "License");          */
 /*    you may not use this file except in compliance with the License.         */
@@ -15,8 +15,8 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrExplicitServicesAccess.hpp                                      */
-/* Date:  28 September 2021                                                    */
-/* Version: V1.0.0-r4.3                                                        */
+/* Date:  25 December 2021                                                     */
+/* Version: V2.1.0                                                             */
 /* Purpose: XcvrExplicitServicesAccess.hpp defines the Explicit services access*/
 /*          class for active services access                                   */
 /*-----------------------------------------------------------------------------*/
@@ -70,26 +70,6 @@ namespace WInnF_Cpp
          // GainControl services group
          virtual void setGainChanges( Transceiver::GainControl::GainChanges* reference) = 0;
          virtual ~ExplicitServicesAccess() NOEXCEPT {}
-      };
-
-      // Access to Tx channels services
-      class TxServicesAccess : public ExplicitServicesAccess
-      {
-       public:
-         // Getting references of provide SamplesTransmission instances
-         virtual Transceiver::BasebandSignal::SamplesTransmission* getSamplesTransmission( uint16_t channelNumber) = 0;
-         virtual ~TxServicesAccess() NOEXCEPT {}
-      };
-
-      // Access to Rx channels services
-      class RxServicesAccess : public ExplicitServicesAccess
-      {
-       public:
-         // Setting references to use SamplesReception instances
-         virtual void setSamplesReception(
-            Transceiver::BasebandSignal::SamplesReception* const reference,
-            uint16_t channelNumber) = 0;
-         virtual ~RxServicesAccess() NOEXCEPT {}
       };
     } // namespace ActiveServicesAccess
   } // namespace Transceiver

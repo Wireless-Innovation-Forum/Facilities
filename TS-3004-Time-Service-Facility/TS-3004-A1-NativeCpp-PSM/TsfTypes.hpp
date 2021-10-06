@@ -15,10 +15,10 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : TsfTypes.hpp                                                        */
-/* Date:  28 September 2021                                                    */
-/* Version:  V0.0.0-r4.6                                                       */
+/* Date:  25 December 2021                                                     */
+/* Version:  V1.1.0                                                            */
 /* Purpose: The TsfTypes.hpp file declares the API types of the                */
-/*          Time Service Facility PIM Specification.                          */
+/*          Time Service Facility PIM Specification.                           */
 /*-----------------------------------------------------------------------------*/
 
 #ifndef TSF_TYPES
@@ -31,7 +31,6 @@
 #endif
 
 #include "TsfPlatformProviderAdaptations.hpp"
-
 // Support of exceptions (section 3.8 of [PIM])
 #ifdef EXCEPTIONS_SUPPORT
    #include "TsfExceptions.hpp"

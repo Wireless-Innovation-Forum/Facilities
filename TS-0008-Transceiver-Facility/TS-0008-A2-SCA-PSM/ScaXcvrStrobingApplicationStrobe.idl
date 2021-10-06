@@ -14,44 +14,33 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
+/* Title : ScaXcvrStrobingApplicationStrobe.idl                                */
 /* Date:  25 December 2021                                                     */
 /* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Purpose: The ScaXcvrStrobingApplicationStrobe.idl file is specified as the  */
+/*          IDL file that declares the Strobing ApplicationStrobe service      */
+/*          interface specified by section 3.1.18 of Transceiver Facility PIM  */
+/*          Specification                                                      */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
+#ifndef __SCA_XCVR_STROBING_APPLICATION_STROBE_DEFINED
+#define __SCA_XCVR_STROBING_APPLICATION_STROBE_DEFINED
 
-#include "XcvrTypes.hpp"
+#include "ScaXcvrTypes.idl"
 
-namespace WInnF_Cpp
+module WInnF_Sca
 {
-  namespace Transceiver
+  module Transceiver
   {
-    namespace ActiveServicesAccess
+    module Strobing
     {
-      class Object
+      interface ApplicationStrobe
       {
-       public:
-         virtual ~Object() NOEXCEPT {}
+        void triggerStrobe()
+          raises( UnavailableService );
       };
+    };
+  }; //Transceiver
+}; // WInnF_Sca
 
-      class GenericServicesAccess
-      {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
-
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
-      };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+#endif // __SCA_XCVR_STROBING_APPLICATION_STROBE_DEFINED

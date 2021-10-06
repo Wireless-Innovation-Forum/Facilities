@@ -15,8 +15,8 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : TsfGenericServicesAccess.hpp                                        */
-/* Date:  28 September 2021                                                    */
-/* Version:  V0.0.0-r4.6                                                       */
+/* Date:  25 December 2021                                                     */
+/* Version:  V1.1.0                                                            */
 /* Purpose: TsfGenericServicesAccess.hpp defines the Generic services access   */
 /*          class for active services access                                   */
 /*-----------------------------------------------------------------------------*/

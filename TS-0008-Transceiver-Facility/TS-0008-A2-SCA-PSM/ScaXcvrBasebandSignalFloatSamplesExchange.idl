@@ -14,44 +14,49 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
+/* Title : ScaXcvrBasebandSignalFloatSamplesExchange.idl                       */
 /* Date:  25 December 2021                                                     */
 /* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Purpose: The ScaXcvrBasebandSignalFloatSamplesExchange.idl file is specified*/
+/*          as the IDL file that declares the BasebandSignalFloat              */
+/*          SamplesExchange to address service interfaces specified by section */
+/*          3.1.8, and 3.1.9 of Transceiver Facility PIM Specification, when   */
+/*          IQ_TYPE is equal to floatingPoint.                                 */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
+#ifndef __SCA_XCVR_BASEBAND_SIGNAL_FLOAT_SAMPLES_EXCHANGE_DEFINED
+#define __SCA_XCVR_BASEBAND_SIGNAL_FLOAT_SAMPLES_EXCHANGE_DEFINED
 
-#include "XcvrTypes.hpp"
+#include "ScaXcvrTypes.idl"
+#include "CFProperties.idl"
 
-namespace WInnF_Cpp
+module WInnF_Sca
 {
-  namespace Transceiver
+  module Transceiver
   {
-    namespace ActiveServicesAccess
+    module BasebandSignalFloat
     {
-      class Object
+      typedef float IQ;
+
+      struct BasebandSample
       {
-       public:
-         virtual ~Object() NOEXCEPT {}
+        IQ valueI;
+        IQ valueQ;
       };
 
-      class GenericServicesAccess
+      typedef sequence <BasebandSample> BasebandPacket;
+
+      interface SamplesExchange
       {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
-
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
+        void pushPacket(in BasebandPacket packet,
+                        in boolean endOfBlock,
+                        in CF::Properties metaData)
+          raises( UnavailableService,
+                 MaxPacketsLength,
+                 PacketsMILT);
       };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+    };
+  }; //Transceiver
+}; // WInnF_Sca
+
+#endif // __SCA_XCVR_BASEBAND_SIGNAL_FLOAT_SAMPLES_EXCHANGE_DEFINED

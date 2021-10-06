@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------*/
 /*    Distributed by Wireless Innovation Forum                                 */
-/*    Copyright 2021 SDS Harmonized Timing Service Task Group.                 */
+/*    Copyright 2021 SDS Transceiver WG Transceiver Next Task Group.           */
 /*    All Rights Reserved.                                                     */
 /*    Licensed under the Apache License, Version 2.0 (the "License");          */
 /*    you may not use this file except in compliance with the License.         */
@@ -15,8 +15,8 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrPlatformProviderAdaptations.hpp                                 */
-/* Date:  28 September 2021                                                    */
-/* Version: V1.0.0-r4.3                                                        */
+/* Date:  25 December 2021                                                     */
+/* Version: V2.1.0                                                             */
 /* Purpose: The XcvrPlatformProviderAdaptations.hpp file is specified as the   */
 /*          header file specifying the ActiveServicesAccess property, Tx or Rx */
 /*          metadata if needed and Interface declaration properties.           */
@@ -32,13 +32,13 @@
 #ifndef XCVR_USER_ADAPTATIONS
 #define XCVR_USER_ADAPTATIONS
 
-// ACTIVE_SERVICES_ACCESS
+// Active Services Access and Exceptions Support
 // *** PROVIDER-ADAPTATION ***
 #define EXPLICIT_SERVICES_ACCESS // comment if EXPLICIT is not supported
 #define GENERIC_SERVICES_ACCESS  // comment if GENERIC is not supported
 #define EXCEPTIONS_SUPPORT	    // comment if EXCEPTIONS is not supported
 
-// 1 Interface declaration properties
+// Interface declaration properties
 namespace WInnF_Cpp
 {
   namespace Transceiver

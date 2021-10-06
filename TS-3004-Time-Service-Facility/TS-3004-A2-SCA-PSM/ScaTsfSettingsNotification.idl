@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------*/
 /*    Distributed by Wireless Innovation Forum                                 */
-/*    Copyright 2021 SDS Transceiver WG Transceiver Next Task Group.           */
+/*    Copyright 2021 SDS Harmonized Timing Service Task Group.                 */
 /*    All Rights Reserved.                                                     */
 /*    Licensed under the Apache License, Version 2.0 (the "License");          */
 /*    you may not use this file except in compliance with the License.         */
@@ -14,44 +14,32 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
+/* Title : ScaTsfSettingsNotification.idl                                      */
 /* Date:  25 December 2021                                                     */
-/* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Version:  V1.1.0                                                            */
+/* Purpose: The ScaTsfSettingsNotification.idl file is specified as the IDL    */
+/*          file specifying the specific time settings notifications specified */
+/*          by section 3.1.7 of Time Service Facility PIM Specification        */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
-
-#include "XcvrTypes.hpp"
-
-namespace WInnF_Cpp
+#ifndef __SCA_TSF_SETTINGS_NOTIFICATION_DEFINED
+#define __SCA_TSF_SETTINGS_NOTIFICATION_DEFINED
+#include "ScaTsfTypes.idl"
+module WInnf_Sca
 {
-  namespace Transceiver
+  module TimeService
   {
-    namespace ActiveServicesAccess
+    module SpecificTimes  
     {
-      class Object
+      interface SettingsNotification
       {
-       public:
-         virtual ~Object() NOEXCEPT {}
+        void notifySpecificTimeSetting(in SpecificTimeId specific_TimeId,
+                                       in TimeValue specificTime,
+                                       in TimeValue timeStamp,
+                                       in TimeUncertainty time_Uncertainty)
+          raises(UnavailableService);
       };
-
-      class GenericServicesAccess
-      {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
-
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
-      };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+    };
+  };
+};
+#endif // __SCA_TSF_SETTINGS_NOTIFICATION_DEFINED

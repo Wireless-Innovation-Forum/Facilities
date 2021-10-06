@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------*/
 /*    Distributed by Wireless Innovation Forum                                 */
-/*    Copyright 2021 SDS Harmonized Timing Service Task Group.                 */
+/*    Copyright 2021 SDS Transceiver WG Transceiver Next Task Group.           */
 /*    All Rights Reserved.                                                     */
 /*    Licensed under the Apache License, Version 2.0 (the "License");          */
 /*    you may not use this file except in compliance with the License.         */
@@ -15,8 +15,8 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : XcvrExceptions.hpp                                                  */
-/* Date:  28 September 2021                                                    */
-/* Version: V1.0.0-r4.3                                                        */
+/* Date:  25 December 2021                                                     */
+/* Version: V2.1.0                                                             */
 /* Purpose: The XcvrExceptions.hpp file is specified as the header file that   */
 /*          declares all useable exceptions.                                   */
 /*          XcvrExceptions.hpp is used if EXCEPTION_USE is equal to true       */
@@ -41,14 +41,14 @@ namespace WInnF_Cpp
   namespace Transceiver
   {
     // General exceptions
-    class AlternateException: public std::invalid_argument
+    class NoAlternateReferencingException: public std::invalid_argument
     {
      public:
-       AlternateException(char const *msg = "") NOEXCEPT
+       NoAlternateReferencingException (char const *msg = "") NOEXCEPT
              : ::std::invalid_argument(msg)
        {
        }
-       AlternateException(::std::string const &msg) NOEXCEPT
+       NoAlternateReferencingException(::std::string const &msg) NOEXCEPT
              : ::std::invalid_argument(msg)
        {
        }

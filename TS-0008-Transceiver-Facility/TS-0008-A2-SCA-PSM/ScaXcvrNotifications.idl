@@ -14,44 +14,55 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
+/* Title : ScaXcvrNotifications.idl                                            */
 /* Date:  25 December 2021                                                     */
 /* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Purpose: The ScaXcvrNotifications.idl file is specified as the IDL file     */
+/*          that declares the Notifications service interfaces specified by    */
+/*          sections 3.1.13 and 3.1.14 of Transceiver Facility PIM             */
+/*          Specification                                                      */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
+#ifndef __SCA_XCVR_NOTIFICATIONS_DEFINED
+#define __SCA_XCVR_NOTIFICATIONS_DEFINED
 
-#include "XcvrTypes.hpp"
-
-namespace WInnF_Cpp
+module WInnF_Sca
 {
-  namespace Transceiver
+  module Transceiver
   {
-    namespace ActiveServicesAccess
+    module Notifications
     {
-      class Object
+      enum Event
       {
-       public:
-         virtual ~Object() NOEXCEPT {}
+        PROCESSING_START_EVENT,
+        PROCESSING_STOP_EVENT,
+        SILENCE_START_EVENT,
+        SILENCE_STOP_EVENT
+      };
+    
+      enum Error
+      {
+        DELAYED_TUNING_ERROR,
+        TUNING_TIMEOUT_ERROR,
+        DELAYED_FIRST_SAMPLE_ERROR,
+        FIRST_SAMPLE_TIMEOUT_ERROR,
+        TRANSMISSION_UNDERFLOW_ERROR,
+        RECEPTION_OVERFLOW_ERROR,
+        SHORTER_TRANSMITTED_BLOCK_ERROR,
+        LONGER_TRANSMITTED_BLOCK_ERROR
       };
 
-      class GenericServicesAccess
+      interface Events
       {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
-
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
+        void notifyEvent(in Event notifiedEvent);
       };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+                      
+      interface Errors
+      {
+        void notifyError(in Error notifiedError);
+      };
+    };
+  }; //Transceiver
+}; // WInnF_Sca
+
+#endif // __SCA_XCVR_NOTIFICATIONS_DEFINED

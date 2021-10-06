@@ -14,44 +14,49 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
+/* Title : ScaXcvrTypes.idl                                                    */
 /* Date:  25 December 2021                                                     */
 /* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Purpose: The ScaXcvrTypes.idl file is specified as the IDL file that        */
+/*          declares the types specified by section 3.4 of Transceiver         */
+/*          Facility PIM  Specification                                        */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
+#ifndef __SCA_XCVR_TYPES_DEFINED
+#define __SCA_XCVR_TYPES_DEFINED
 
-#include "XcvrTypes.hpp"
+#include "ScaXcvrExceptions.idl"
 
-namespace WInnF_Cpp
+module WInnF_Sca
 {
-  namespace Transceiver
+  module Transceiver
   {
-    namespace ActiveServicesAccess
+    //Gain
+    typedef short Gain; // in 1/10 dB
+    const Gain UNDEFINED_GAIN = 0x7FFF;
+
+    // Delay   
+    typedef unsigned long long DelayType;
+    typedef DelayType Delay;  // in ns
+
+    const Delay UNDEFINED_DELAY = 0x7FFFFFFFFFFFFFFF;  // 9223372036854775807
+
+    // BurstNumber
+    typedef unsigned long BurstNumber;
+
+
+    // TimeSpec 
+    struct TimeSpec
     {
-      class Object
-      {
-       public:
-         virtual ~Object() NOEXCEPT {}
-      };
+      unsigned long seconds;             // in seconds
+      unsigned long nanoseconds;         // in nanoseconds (<1.000.000.000)
+    };
+    
+    // A TimeSpec with an undefined value shall have both, the seconds and the
+    // nanoseconds, fields set to UNDEFINED_TIME_SPEC_TIME
+    const unsigned long UNDEFINED_TIME_SPEC_TIME = 0xFFFFFFFF; 
 
-      class GenericServicesAccess
-      {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
+  }; // Transceiver
+}; // WInnF_Sca
 
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
-      };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+#endif // __SCA_XCVR_TYPES_DEFINED

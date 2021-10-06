@@ -14,44 +14,37 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
+/* Title : ScaXcvrManagementRadioSilence.idl                                   */
 /* Date:  25 December 2021                                                     */
 /* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Purpose: The ScaXcvrManagementRadioSilence.idl file is specified as the IDL */
+/*          file that declares the Management RadioSilence service interface   */
+/*          specified by section 3.1.2 of the Transceiver Facility PIM         */
+/*          Specification                                                      */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
+#ifndef __SCA_XCVR_MANAGEMENT_RADIO_SILENCE_DEFINED
+#define __SCA_XCVR_MANAGEMENT_RADIO_SILENCE_DEFINED
 
-#include "XcvrTypes.hpp"
+#include "ScaXcvrTypes.idl"
 
-namespace WInnF_Cpp
+module WInnF_Sca
 {
-  namespace Transceiver
+  module Transceiver
   {
-    namespace ActiveServicesAccess
+
+    module Management
     {
-      class Object
+      interface RadioSilence
       {
-       public:
-         virtual ~Object() NOEXCEPT {}
+        void startRadioSilence()
+          raises( UnavailableService );
+
+        void stopRadioSilence()
+          raises( UnavailableService );
       };
+    };
 
-      class GenericServicesAccess
-      {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
-
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
-      };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+  }; //Transceiver
+}; // WInnF_Sca
+#endif // __SCA_XCVR_MANAGEMENT_RADIO_SILENCE_DEFINED

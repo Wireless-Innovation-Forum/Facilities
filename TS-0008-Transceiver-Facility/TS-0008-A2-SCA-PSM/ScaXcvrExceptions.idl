@@ -1,0 +1,133 @@
+/*-----------------------------------------------------------------------------*/
+/*    Distributed by Wireless Innovation Forum                                 */
+/*    Copyright 2021 SDS Transceiver WG Transceiver Next Task Group.           */
+/*    All Rights Reserved.                                                     */
+/*    Licensed under the Apache License, Version 2.0 (the "License");          */
+/*    you may not use this file except in compliance with the License.         */
+/*    You may obtain a copy of the License at                                  */
+/*                                                                             */
+/* https://github.com/Wireless-Innovation-Forum/Facilities/blob/master/LICENSE */
+/*                                                                             */
+/*    Unless required by applicable law or agreed to in writing, software      */
+/*    distributed under the License is distributed on an "AS IS" BASIS,        */
+/*    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. */
+/*    See the License for the specific language governing permissions and      */
+/*    limitations under the License.                                           */
+/*-----------------------------------------------------------------------------*/
+/* Title : ScaXcvrExceptions.idl                                               */
+/* Date:  25 December 2021                                                     */
+/* Version: V2.1.0                                                             */
+/* Purpose: The ScaXcvrExceptions.idl file is specified as the IDL file that   */
+/*          declares the exceptions specified by section 3.2 of the Transceiver*/
+/*          Facility PIM  Specification                                        */
+/*-----------------------------------------------------------------------------*/
+
+#ifndef __SCA_XCVR_EXCEPTIONS_DEFINED
+#define __SCA_XCVR_EXCEPTIONS_DEFINED
+
+module WInnF_Sca
+{
+  module Transceiver
+  {
+    exception NoAlternateReferencing
+    {
+    };
+	
+    exception NoOngoingProcessing
+    {
+    };
+
+    exception UnavailableStrobeSource
+    {
+    };
+
+    exception MinBlockLength
+    {
+    };
+	
+    exception MaxBlockLength
+    {
+    };
+
+    exception MinCarrierFreq
+    {
+    };
+
+    exception MaxCarrierFreq
+    {
+    };
+
+    exception MinFromOngoing
+    {
+    };
+
+    exception MaxFromOngoing
+    {
+    };
+
+    exception MinFromPrevious
+    {
+    };
+
+    exception MaxFromPrevious
+    {
+    };
+
+    exception MinFromStrobe
+    {
+    };
+
+    exception MaxFromStrobe
+    {
+    };
+	
+    exception MinGain
+    {
+    };
+
+    exception MaxGain
+    {
+    };
+	
+    exception MaxNanoSeconds
+    {
+    };
+
+    exception MaxRxPacketsLength
+    {
+    };
+
+    exception MaxTuningPreset
+    {
+    };
+
+    exception MaxPacketsLength
+    {
+    };
+
+    exception AbsoluteMILT
+    {
+    };
+
+    exception RelativeMILT
+    {
+    };
+
+    exception RetuningMILT
+    {
+    };
+
+    exception TuningMILT
+    {
+    };
+
+    exception PacketsMILT
+    {
+    };
+
+    exception UnavailableService
+    {
+    };
+  };
+};
+#endif // __SCA_XCVR_EXCEPTIONS_DEFINED

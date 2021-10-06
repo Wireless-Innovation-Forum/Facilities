@@ -14,25 +14,44 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : TsfPlatformProviderAdaptations.hpp                                  */
+/* Title : ScaTsfSystemTimeAccess.idl                                          */
 /* Date:  25 December 2021                                                     */
 /* Version:  V1.1.0                                                            */
-/* Purpose: The TsfPlatformProviderAdaptations.hpp file is specified as the    */
-/*          header file specifying the ActiveServicesAccess property           */
-/*          TsfPlatformProviderAdaptations.hpp has to be adapted by platform   */
-/*          providers only in areas marked with *** PROVIDER-ADAPTATION ***.   */
+/* Purpose: The ScaTsfSystemTimeAccess.idl file is specified as the IDL file   */
+/*          specifying the system time access specified by section 3.1.3 of    */
+/*          Time Service Facility PIM Specification                            */
 /*-----------------------------------------------------------------------------*/
 
-// Specifies PlatformProvider-adaptations:
-//  ActiveServicesAccess property, specified by section 2.3 of [PSM]
+#ifndef __SCA_TSF_TERMINAL_TIME_ACCESS_DEFINED
+#define __SCA_TSF_TERMINAL_TIME_ACCESS_DEFINED
+#include "ScaTsfTypes.idl"
+module WInnf_Sca
+{
+  module TimeService
+  {
+    module SystemTime  
+    {
+      interface SystemTimeAccess
+      {
+        void getCurrentTAI(out TimeValue currentTAI,
+                           out TimeValue timeStamp,
+                           out TimeUncertainty time_Uncertainty)
+          raises(UnavailableService);
 
-#ifndef TSF_PLATFORM_PROVIDER_ADAPTATIONS
-#define TSF_PLATFORM_PROVIDER_ADAPTATIONS
-
-// ActiveServicesAccess
-// *** PROVIDER-ADAPTATION ***
-#define EXPLICIT_SERVICES_ACCESS // comment if EXPLICIT is not supported
-#define GENERIC_SERVICES_ACCESS  // comment if GENERIC is not supported
-#define EXCEPTIONS_SUPPORT       // comment if EXCEPTIONS is not supported
-
-#endif // #ifndef TSF_PLATFORM_PROVIDER_ADAPTATIONS
+        void getCurrentUTC(out TimeValue currentUTC,
+                           out TimeValue timeStamp,
+                           out TimeUncertainty time_Uncertainty)
+          raises(UnavailableService);
+        void getLastUpdateTAI(out TimeValue lastUpdateTAI,
+                              out TimeValue timeStamp,
+                              out TimeUncertainty time_Uncertainty)
+          raises(UnavailableService);
+        void getLastUpdateUTC(out TimeValue lastUpdateUTC,
+                              out TimeValue timeStamp,
+                              out TimeUncertainty time_Uncertainty)
+          raises(UnavailableService);
+      };
+    };
+  };
+};
+#endif // __SCA_TSF_TERMINAL_TIME_ACCESS_DEFINED

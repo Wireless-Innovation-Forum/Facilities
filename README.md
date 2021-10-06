@@ -1,2 +1,13 @@
-# Transceiver-Next
-The TSI-TG will begin work a new project developing the  "Transceiver Next" specification. This project is being undertaken forthe international community of SDRproducts developer who are seeking an openly available, free to access and free to use internationally elaborated standard API for portable SDR Applications and multi-application Transceivers. The project will produce an updated release of WINNF Transceiver Facility originally published in 2009, and will improve the content based on years of implementation experience. The project will also expand the addressed applications to extend the applicability of the standard to include test and measurement, dynamic spectrum allocation, and sensing. 
+# WInnForum Facilities source files
+This repository contains the source files for the software interfaces of facilities published by the WInnForum.
+The adressed facilities are:
+-- WINNF-TS-0008 Transceiver Facility V2.1.0,
+-- WINNF-TS-3004 Time Service Facility V1.1.0.
+
+For each facility, it contains a dedicated folder with one subfolder for each PSM (Platform Specific Model) specification.
+The adressed PSM specifications are:
+-- Native C++,
+-- SCA,
+-- FPGA.
+
+A dedicated tag is defined for each available version of the supported facilities.

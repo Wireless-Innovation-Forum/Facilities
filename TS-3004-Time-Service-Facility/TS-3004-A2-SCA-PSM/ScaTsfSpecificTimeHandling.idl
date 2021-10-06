@@ -14,25 +14,40 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : TsfPlatformProviderAdaptations.hpp                                  */
+/* Title : ScaTsfSpecificTimeHandling.idl                                      */
 /* Date:  25 December 2021                                                     */
 /* Version:  V1.1.0                                                            */
-/* Purpose: The TsfPlatformProviderAdaptations.hpp file is specified as the    */
-/*          header file specifying the ActiveServicesAccess property           */
-/*          TsfPlatformProviderAdaptations.hpp has to be adapted by platform   */
-/*          providers only in areas marked with *** PROVIDER-ADAPTATION ***.   */
+/* Purpose: The ScaTsfSpecificTimeHandling.idl file is specified as the IDL    */
+/*          file specifying the specific time handling specified by section    */
+/*          3.1.6 of Time Service Facility PIM Specification                   */
 /*-----------------------------------------------------------------------------*/
 
-// Specifies PlatformProvider-adaptations:
-//  ActiveServicesAccess property, specified by section 2.3 of [PSM]
-
-#ifndef TSF_PLATFORM_PROVIDER_ADAPTATIONS
-#define TSF_PLATFORM_PROVIDER_ADAPTATIONS
-
-// ActiveServicesAccess
-// *** PROVIDER-ADAPTATION ***
-#define EXPLICIT_SERVICES_ACCESS // comment if EXPLICIT is not supported
-#define GENERIC_SERVICES_ACCESS  // comment if GENERIC is not supported
-#define EXCEPTIONS_SUPPORT       // comment if EXCEPTIONS is not supported
-
-#endif // #ifndef TSF_PLATFORM_PROVIDER_ADAPTATIONS
+#ifndef __SCA_TSF_SPECIFIC_TIME_HANDLING_DEFINED
+#define __SCA_TSF_SPECIFIC_TIME_HANDLING_DEFINED
+#include "ScaTsfTypes.idl"
+module WInnf_Sca
+{
+  module TimeService
+  {
+    module SpecificTimes  
+    {
+      interface SpecificTimeHandling
+	  {
+        void setSpecificTime(in SpecificTimeId specific_TimeId,
+                             in TimeValue specificTime,
+                             in TimeValue timeStamp,
+                             in TimeUncertainty time_Uncertainty)
+          raises(FutureTimeStamp,
+                 InvalidSpecificTimeId,
+                 UnavailableService);
+        void getSpecificTime(in SpecificTimeId specific_TimeId,
+                             out TimeValue specificTime,
+                             out TimeValue timeStamp,
+                             out TimeUncertainty time_Uncertainty)
+          raises(InvalidSpecificTimeId,
+                 UnavailableService);
+      };
+    };
+  };
+};
+#endif // __SCA_TSF_SPECIFIC_TIME_HANDLING_DEFINED

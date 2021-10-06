@@ -14,44 +14,28 @@
 /*    See the License for the specific language governing permissions and      */
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
-/* Title : XcvrGenericServicesAccess.hpp                                       */
-/* Date:  25 December 2021                                                     */
-/* Version: V2.1.0                                                             */
-/* Purpose: XcvrGenericServicesAccess.hpp defines the Generic services access  */
-/*          class for active services access                                   */
+/* Title : CFProperties.idl                                                    */
+/* Date:  15 May 2006                                                          */
+/* Version: SCA 2.2.2                                                          */
+/* Purpose: The CFProperties.idl file is an extract of the Appendix C: Core    */
+/*          Framework IDL document prepared by JTRS Standards, Joint Program   */
+/*          Executive Office (JPEO) Jiont Tactical Radio System (JTRS)         */
+/*          This extract specified the format of SCA properties                */
 /*-----------------------------------------------------------------------------*/
 
-#ifndef XCVR_GENERIC_SERVICES_ACCESS
-#define XCVR_GENERIC_SERVICES_ACCESS
+#ifndef __CF_PROPERTIES_DEFINED
+#define __CF_PROPERTIES_DEFINED
 
-#include "XcvrTypes.hpp"
-
-namespace WInnF_Cpp
+module CF 
 {
-  namespace Transceiver
+  struct DataType
   {
-    namespace ActiveServicesAccess
-    {
-      class Object
-      {
-       public:
-         virtual ~Object() NOEXCEPT {}
-      };
-
-      class GenericServicesAccess
-      {
-       public:
-         // Access to active provide services
-         virtual Object *getProvideService(
-           const char *ServiceName) = 0;
-
-         // Access to active use services
-         virtual void setUseService(const char *ServiceName,
-                                    Object *    provider) = 0;
-
-         virtual ~GenericServicesAccess() NOEXCEPT {}
-      };
-    } // namespace ActiveServicesAccess
-  } // namespace Transceiver
-} // namespace WInnF_Cpp
-#endif // ifndef XCVR_GENERIC_SERVICES_ACCESS
+    /* The id attribute indicates the kind of value and type. The id can be an UUID string, an integer string, or a name identifier. */
+    string id;
+    /* The value attribute can be any static IDL type or CORBA basic type. */
+    any value;
+  };
+  /* The Properties is a CORBA IDL unbounded sequence of CF DataType(s), which can be used in defining a sequence of name and value pairs. */
+  typedef sequence <DataType> Properties;
+};
+#endif // __CF_PROPERTIES_DEFINED

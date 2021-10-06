@@ -15,8 +15,8 @@
 /*    limitations under the License.                                           */
 /*-----------------------------------------------------------------------------*/
 /* Title : TsfFacade.hpp                                                       */
-/* Date:  28 September 2021                                                    */
-/* Version:  V0.0.0-r4.6                                                       */
+/* Date:  25 December 2021                                                     */
+/* Version:  V1.1.0                                                            */
 /* Purpose: The TsfFacade.hpp file is specified as the header file that        */
 /*          declares the Facade class.                                         */
 /*          TsfFacade.hpp has to be directly included by conformant radio      */
